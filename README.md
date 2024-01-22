@@ -1,4 +1,4 @@
-# CinemaNChill
+# Context-Aware Recommendation System using IMDB database
 
 Project created by:
 
