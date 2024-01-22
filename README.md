@@ -1,4 +1,4 @@
-# Context-Aware Recommendation System using IMDB database
+# Context-Aware Recommendater System using IMDB database
 
 Project created by:
 
