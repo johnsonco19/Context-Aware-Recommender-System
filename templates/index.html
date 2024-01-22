@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cinema and Chill</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<style>
+			.head ul {
+			  list-style-type: none;
+			  padding: 0;
+			  overflow: hidden;
+			  background-color: #333;
+			}
+
+			.head li {
+			  float: left;
+			}
+
+			.head li a {
+			  display: block;
+			  text-align: center;
+			  padding: 14px 16px;
+			}
+
+			body {
+				margin-top: 10px;
+				background-image: url("../static/background2.png");
+				background-attachment: fixed;
+				background-color: #515151;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+			}
+
+			button {
+				display: block;
+				text-align: center;
+				padding: 9px 20px;
+				background-color: #515151;
+    			background-repeat: no-repeat;
+    			cursor: pointer;
+    			color: orangered;
+			}
+
+			.scroll {
+				height:100%;
+				min-height: 100%
+			}
+
+			/* width */
+			::-webkit-scrollbar {
+			    width: 10px;
+			}
+
+			/* Track */
+			::-webkit-scrollbar-track {
+			    background: #888;
+			}
+
+			/* Handle */
+			::-webkit-scrollbar-thumb {
+			    background: #555;
+			}
+
+			/* Handle on hover */
+			::-webkit-scrollbar-thumb:hover {
+			    background: #222;
+			}
+
+			.footer-dark {
+			  padding:50px 0;
+			  color:#f0f9ff;
+			  background-color:#282d32;
+			}
+
+			.footer-dark h3 {
+			  margin-top:0;
+			  margin-bottom:12px;
+			  font-weight:bold;
+			  font-size:16px;
+			}
+
+			.footer-dark ul {
+			  padding:0;
+			  list-style:none;
+			  line-height:1.6;
+			  font-size:14px;
+			  margin-bottom:0;
+			}
+
+			.footer-dark ul a {
+			  color:inherit;
+			  text-decoration:none;
+			  opacity:0.6;
+			}
+
+			.footer-dark ul a:hover {
+			  opacity:0.8;
+			}
+
+			@media (max-width:767px) {
+			  .footer-dark .item:not(.social) {
+				text-align:center;
+				padding-bottom:20px;
+			  }
+			}
+
+			.footer-dark .item.text {
+			  margin-bottom:36px;
+			}
+
+			@media (max-width:767px) {
+			  .footer-dark .item.text {
+				margin-bottom:0;
+			  }
+			}
+
+			.footer-dark .item.text p {
+			  opacity:0.6;
+			  margin-bottom:0;
+			}
+
+			.footer-dark .item.social {
+			  text-align:center;
+			}
+
+			@media (max-width:991px) {
+			  .footer-dark .item.social {
+				text-align:center;
+				margin-top:20px;
+			  }
+			}
+
+			.footer-dark .item.social > a {
+			  font-size:20px;
+			  width:36px;
+			  height:36px;
+			  line-height:36px;
+			  display:inline-block;
+			  text-align:center;
+			  border-radius:50%;
+			  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+			  margin:0 8px;
+			  color:#fff;
+			  opacity:0.75;
+			}
+
+			.footer-dark .item.social > a:hover {
+			  opacity:0.9;
+			}
+
+			.footer-dark .copyright {
+			  text-align:center;
+			  padding-top:24px;
+			  opacity:0.3;
+			  font-size:13px;
+			  margin-bottom:0;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="head">
+		<ul style="margin-right: 10px;margin-left: 10px;">
+			<li style="font-size: 25px;"><a class="active" href="/" style="text-decoration: none;color: orangered;">Cinema and Chill</a></li>
+			<li style="float: right;font-size: 18px;"><a href="signIn" style="text-decoration: none; color: orangered;">Sign In</a></li>
+			<li style="float: right;font-size: 18px;"><a href="signUp" style="text-decoration: none; color: orangered;">Sign Up</a></li>
+			<li style="float: right;font-size: 18px;"><a href="search" style="text-decoration: none; color: orangered;">Search</a></li>
+		</ul>
+		</div>
+
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="../static/snuggle.png" style="width:100%;height: 70%;">
+				</div>
+
+				<div class="item">
+					<img src="../static/movies2pic.png" style="width:100%;">
+				</div>
+
+				<div class="item">
+					<img src="../static/moviespic.png" style="width:100%;">
+				</div>
+			</div>
+
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      			<span class="glyphicon glyphicon-chevron-left"></span>
+    		</a>
+    		<a class="right carousel-control" href="#myCarousel" data-slide="next">
+      			<span class="glyphicon glyphicon-chevron-right"></span>
+    		</a>
+		</div>
+		<div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="/search">Search</a></li>
+                            <li><a href="/signUp">Create a New Profile</a></li>
+                            <li><a href="/signIn">Log In to Existing Profile</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Team</h3>
+                        <ul>
+                            <li><a href="#">Cody Johnson</a></li>
+                            <li><a href="#">Brendan Derr</a></li>
+                            <li><a href="#">Luis Cueto</a></li>
+							<li><a href="#">Brian Newman</a></li>
+							<li><a href="#">Justin Si</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Cinema N' Chill</h3>
+                        <p>Made in 2022 as a Software Engineering 2 Project.</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">Cinema N' Chill © 2022</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+	</body>
+
+</html>

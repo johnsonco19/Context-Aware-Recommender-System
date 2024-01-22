@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Recommender Page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<style>
+            .head ul {
+			  list-style-type: none;
+			  padding: 0;
+			  overflow: hidden;
+			  background-color: #333;
+			}
+
+			.head li {
+			  float: left;
+			}
+
+			.head li a {
+			  display: block;
+			  text-align: center;
+			  padding: 14px 16px;
+			}
+
+			body {
+				margin-top: 10px;
+				background-image: url("../static/background2.png");
+				background-attachment: fixed;
+				background-color: #515151;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				overflow: hidden;
+			}
+
+            .centered {
+               margin-left:20px;
+               color: orangered;
+               position: absolute;
+               text-align: center;
+            }
+
+            .centered img {
+               width: 150px;
+               border-radius: 50%;
+            }
+            tr:hover{
+               background:blue;
+            }
+
+            button {
+				display: block;
+				text-align: center;
+				padding: 9px 20px;
+				background-color: #515151;
+    			background-repeat: no-repeat;
+    			cursor: pointer;
+    			color: orangered;
+                margin-left:40%;
+                margin-right:2540%;
+			}
+
+			.scroll {
+				height:100%;
+				min-height: 100%
+			}
+
+			/* width */
+			::-webkit-scrollbar {
+			    width: 10px;
+			}
+
+			/* Track */
+			::-webkit-scrollbar-track {
+			    background: #888;
+			}
+
+			/* Handle */
+			::-webkit-scrollbar-thumb {
+			    background: #555;
+			}
+
+			/* Handle on hover */
+			::-webkit-scrollbar-thumb:hover {
+			    background: #222;
+			}
+
+			.footer-dark {
+			  padding:50px 0;
+			  color:#f0f9ff;
+			  background-color:#282d32;
+			}
+
+			.footer-dark h3 {
+			  margin-top:0;
+			  margin-bottom:12px;
+			  font-weight:bold;
+			  font-size:16px;
+			}
+
+			.footer-dark ul {
+			  padding:0;
+			  list-style:none;
+			  line-height:1.6;
+			  font-size:14px;
+			  margin-bottom:0;
+			}
+
+			.footer-dark ul a {
+			  color:inherit;
+			  text-decoration:none;
+			  opacity:0.6;
+			}
+
+			.footer-dark ul a:hover {
+			  opacity:0.8;
+			}
+
+			@media (max-width:767px) {
+			  .footer-dark .item:not(.social) {
+				text-align:center;
+				padding-bottom:20px;
+			  }
+			}
+
+			.footer-dark .item.text {
+			  margin-bottom:36px;
+			}
+
+			@media (max-width:767px) {
+			  .footer-dark .item.text {
+				margin-bottom:0;
+			  }
+			}
+
+			.footer-dark .item.text p {
+			  opacity:0.6;
+			  margin-bottom:0;
+			}
+
+			.footer-dark .item.social {
+			  text-align:center;
+			}
+
+			@media (max-width:991px) {
+			  .footer-dark .item.social {
+				text-align:center;
+				margin-top:20px;
+			  }
+			}
+
+			.footer-dark .item.social > a {
+			  font-size:20px;
+			  width:36px;
+			  height:36px;
+			  line-height:36px;
+			  display:inline-block;
+			  text-align:center;
+			  border-radius:50%;
+			  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+			  margin:0 8px;
+			  color:#fff;
+			  opacity:0.75;
+			}
+
+			.footer-dark .item.social > a:hover {
+			  opacity:0.9;
+			}
+
+			.footer-dark .copyright {
+			  text-align:center;
+			  padding-top:24px;
+			  opacity:0.3;
+			  font-size:13px;
+			  margin-bottom:0;
+			}
+
+			.footer-dark {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+			}
+        </style>
+    </head>
+    <body>
+
+    <div class="head">
+		<ul style="margin-right: 10px;margin-left: 10px;">
+			<li style="font-size: 25px;"><a class="active" href="/" style="text-decoration: none;color: orangered;">Cinema and Chill</a></li>
+			<li style="float: right;font-size: 18px;"><a href="/signIn" style="text-decoration: none; color: orangered;">Sign In</a></li>
+			<li style="float: right;font-size: 18px;"><a href="/signUp" style="text-decoration: none; color: orangered;">Sign Up</a></li>
+			<li style="float: right;font-size: 18px;"><a href="/search" style="text-decoration: none; color: orangered;">Search</a></li>
+		</ul>
+    </div>
+    <div class="row">
+    <!--This half holds the selections for the user to pick from: genre, isadult, ect
+    list of buttons on this side for every option, on click, it turns itself inactive and turns the corresponding button on the right
+    side active-->
+     <form method="post">
+      <div class="col-sm-6">
+        <div class="centered">
+
+            <h2>Pick Genres you want included in your recommendation</h2>
+         <tr>
+          <td> Reality-TV <input type="checkbox" id="Reality-TV" name="Reality-TV" value="genres like '%Reality-TV%' or "> </td>
+          <td> Musical <input type="checkbox" id="Musical" name="Musical" value="genres like '%Musical%' or "> </td><br>
+          <td> War <input type="checkbox" id="War" name="War" value="genres like '%War%' or "> </td>
+          <td> Sport <input type="checkbox" id="Sport" name="Sport" value="genres like '%Sport%' or "> </td><br>
+          <td> Romance <input type="checkbox" id="Romance" name="Romance" value="genres like '%Romance%' or "> </td>
+          <td> Family <input type="checkbox" id="Family" name="Family" value="genres like '%Family%' or "> </td><br>
+          <td> Comedy <input type="checkbox" id="Comedy" name="Comedy" value="genres like '%Comedy%' or "> </td>
+          <td> Animation <input type="checkbox" id="Animation" name="Animation" value="genres like '%Animation%' or "> </td><br>
+          <td> Western <input type="checkbox" id="Western" name="Western" value="genres like '%Western%' or "> </td>
+          <td> Sci-Fi <input type="checkbox" id="Sci-Fi" name="Sci-Fi" value="genres like '%Sci-Fi%' or "> </td><br>
+          <td> Short <input type="checkbox" id="Short" name="Short" value="genres like '%Short%' or "> </td>
+          <td> Action <input type="checkbox" id="Action" name="Action" value="genres like '%Action%' or "> </td><br>
+          <td> Biography <input type="checkbox" id="Biography" name="Biography" value="genres like '%Biography%' or "> </td>
+          <td> History <input type="checkbox" id="History" name="History" value="genres like '%History%' or "> </td><br>
+          <td> Adult <input type="checkbox" id="Adult" name="Adult" value="genres like '%Adult%' or "> </td>
+          <td> Crime <input type="checkbox" id="Crime" name="Crime" value="genres like '%Crime%' or "> </td><br>
+          <td> Music <input type="checkbox" id="Music" name="Music" value="genres like '%Music%' or "> </td>
+          <td> Fantasy <input type="checkbox" id="Fantasy" name="Fantasy" value="genres like '%Fantasy%' or "> </td><br>
+          <td> Horror <input type="checkbox" id="Horror" name="Horror" value="genres like '%Horror%' or "> </td>
+          <td> Drama <input type="checkbox" id="Drama" name="Drama" value="genres like '%Drama%' or "> </td><br>
+          <td> New <input type="checkbox" id="New" name="New" value="genres like '%New%' or "> </td>
+          <td> Talk-Show <input type="checkbox" id="Talk-Show" name="Talk-Show" value="genres like '%Talk-Show%' or "> </td><br>
+          <td> Thriller <input type="checkbox" id="Thriller" name="Thriller" value="genres like '%Thriller%' or "> </td>
+          <td> Game-Show <input type="checkbox" id="Game-Show" name="Game-Show" value="genres like '%Game-Show%' or "> </td><br>
+          <td> Adventure <input type="checkbox" id="Adventure" name="Adventure" value="genres like '%Adventure%' or "> </td>
+          <td> Documentary <input type="checkbox" id="Documentary" name="Documentary" value="genres like '%Documentary%' or "> </td><br>
+          <td> Mystery <input type="checkbox" id="Mystery" name="Mystery" value="genres like '%Mystery%' or "> </td><br>
+          </tr>
+
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="centered">
+            <h2>Filter by the type of video you want to see</h2>
+         <tr>
+          <td> video <input type="checkbox" id="video" name="video" value="type='video' or "> </td>
+          <td> tvSpecial <input type="checkbox" id="tvSpecial" name="tvSpecial" value="type='tvSpecial' or "> </td>
+          <td> tvSeries <input type="checkbox" id="tvSeries" name="tvSeries" value="type='tvSeries' or "> </td>
+          <td> tvShort <input type="checkbox" id="tvShort" name="tvShort" value="type='tvShort' or "> </td>
+          <td> tvPilot <input type="checkbox" id="tvPilot" name="tvPilot" value="type='tvPilot' or "> </td>
+          <td> movie <input type="checkbox" id="movie" name="movie" value="type='movie' or "> </td>
+          <td> tvMovie <input type="checkbox" id="tvMovie" name="tvMovie" value="type='tvMovie' or "> </td>
+          <td> tvMiniSeries <input type="checkbox" id="tvMiniSeries" name="tvMiniSeries" value="type='tvMiniSeries' or "> </td>
+          <td> videoGame <input type="checkbox" id="videoGame" name="videoGame" value="type='videoGame' or "> </td>
+          <td> tvEpisode <input type="checkbox" id="tvEpisode" name="tvEpisode" value="type='tvEpisode' or "> </td>
+          </tr>
+          <h2>Select based on various criteria</h2>
+
+          <button id="btn" value = 'not what looking for'>Submit</button> <br>
+
+        </div>
+      </div>
+     </form>
+    </div>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="/search">Search</a></li>
+                            <li><a href="/signUp">Create a New Profile</a></li>
+                            <li><a href="/signIn">Log In to Existing Profile</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Team</h3>
+                        <ul>
+                            <li><a href="#">Cody Johnson</a></li>
+                            <li><a href="#">Brendan Derr</a></li>
+                            <li><a href="#">Luis Cueto</a></li>
+							<li><a href="#">Brian Newman</a></li>
+							<li><a href="#">Justin Si</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Cinema N' Chill</h3>
+                        <p>Made in 2022 as a Software Engineering 2 Project.</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">Cinema N' Chill © 2022</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    </body>
+  <script type = 'text/javascript'>
+  document.getElementById('btn').onclick = function() {
+    var markedCheckbox = document.getElementsByName('pl');
+    var value = ''
+    for (var checkbox of markedCheckbox) {
+      if (checkbox.checked)
+        value = value + checkbox.value + ' ';
+        document.body.append(checkbox.value + ' ');
+    }
+    var s = document.getElementById('btn').value= value;
+  }
+  </script>
+</html>
